@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Para a Ester, com todo meu carinho 💖</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fffaf3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      padding: 30px;
+      max-width: 500px;
+      text-align: center;
+    }
+    input {
+      padding: 10px;
+      width: 80%;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #ff6f61;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .hidden { display: none; }
+    .link-final {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Um desafio do coração só para você, Ester 💌</h2>
+
+    <div id="pergunta1">
+      <p><strong>Pergunta 1:</strong> Em que situação inesperada nos conhecemos? Fico feliz por ter acontecido dessa forma 😊</p>
+      <input type="text" id="resposta1" placeholder="Digite sua resposta..." />
+      <button onclick="verificarResposta(1)">Enviar</button>
+    </div>
+
+    <div id="pergunta2" class="hidden">
+      <p><strong>Pergunta 2:</strong> Que esporte você me apresentou? Em breve, vamos nos tornar campeões mundiais 🏆❤️</p>
+      <input type="text" id="resposta2" placeholder="Digite sua resposta..." />
+      <button onclick="verificarResposta(2)">Enviar</button>
+    </div>
+
+    <div id="pergunta3" class="hidden">
+      <p><strong>Pergunta 3:</strong> Qual foi o presente de cordas que entreguei a você? Estou ansioso para ver você se tornar uma rock star. 🎸❤️🔥</p>
+      <input type="text" id="resposta3" placeholder="Digite sua resposta..." />
+      <button onclick="verificarResposta(3)">Enviar</button>
+    </div>
+
+    <div id="final" class="hidden">
+      <p>
+        Você chegou até o fim... 💌<br />
+        Cada momento com você é uma melodia que nunca quero esquecer.<br />
+        Obrigado por estar ao meu lado nessa jornada, pelas risadas, pelos desafios e por tudo que ainda vamos construir juntos.<br />
+        Este é só o começo.<br />
+        Com todo meu carinho,<br />
+        — Júlio ❤️
+      </p>
+      <button onclick="mostrarLink()">Clique aqui para ver sua surpresa 💌</button>
+      <div id="linkSecreto" class="hidden link-final">
+        <a href="https://privnote.com/QAyFdV6Z#rfwNICl29" target="_blank" rel="noopener noreferrer">
+          Abrir mensagem secreta
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function verificarResposta(numero) {
+      const respostas = {
+        1: ["aula de direção", "no mato", "ensinando a dirigir", "atolamento", "carro"],
+        2: ["jiu-jitsu", "jiujitsu"],
+        3: ["guitarra"]
+      };
+      const input = document.getElementById(`resposta${numero}`).value.trim().toLowerCase();
+      if (respostas[numero].includes(input)) {
+        document.getElementById(`pergunta${numero}`).classList.add("hidden");
+        if (numero < 3) {
+          document.getElementById(`pergunta${numero + 1}`).classList.remove("hidden");
+        } else {
+          document.getElementById("final").classList.remove("hidden");
+        }
+      } else {
+        alert("Hmm... tenta lembrar melhor ❤️");
+      }
+    }
+
+    function mostrarLink() {
+      document.getElementById("linkSecreto").classList.remove("hidden");
+    }
+  </script>
+</body>
+</html>
